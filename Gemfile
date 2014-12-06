@@ -34,3 +34,6 @@ gem 'masonry-rails'
 gem "ckeditor"
 gem "paperclip"
 gem 'commontator'
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
+ruby "2.1.2"
