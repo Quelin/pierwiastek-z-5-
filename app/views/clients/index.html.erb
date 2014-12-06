@@ -1,0 +1,40 @@
+
+<div class = "panel panel-primary">
+  <div class="panel-heading">
+     <h3 class="panel-title">Clients</h3>
+    </div>
+    <div class="panel-body">
+  <br />
+  <%= link_to("Add New Client", {:action => 'new'}, :class => 'action new', class: "btn btn-default") %>
+  <br />
+  <br />
+  <br />
+  <table class = "table table-striped table-hover" summary = "Clients list">
+    <tr>
+      <th>ID&nbsp;&nbsp;&nbsp;</th>
+      <th>&nbsp;&nbsp;&nbsp;Name</th>
+      <th>&nbsp;&nbsp;&nbsp;Description</th>
+      <th>&nbsp;&nbsp;&nbsp;Address</th>
+      <th>&nbsp;&nbsp;&nbsp;E-mail</th>
+      <th>&nbsp;&nbsp;&nbsp;Phone</th>
+      <th>&nbsp;&nbsp;&nbsp;Actions</th>
+    </tr>
+    <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.id %></td>
+      <td>&nbsp;&nbsp;&nbsp;<%= truncate(client.name, length: 20, separator: ' ') %></td>
+      <td>&nbsp;&nbsp;&nbsp;<%= truncate(client.description, length: 30, separator: ' ') %></td>
+      <td>&nbsp;&nbsp;&nbsp;<%= truncate(client.address, length: 30, separator: ' ') %></td>
+      <td>&nbsp;&nbsp;&nbsp;<%= client.email %></td>
+      <td>&nbsp;&nbsp;&nbsp;<%= client.phone %></td>
+      <td class = "actions">
+        <%= link_to("Details", {:action => 'show', :id => client.id}, :class => 'action show', class: "btn btn-info") %>
+        <%= link_to("Edit", {:action => 'edit', :id => client.id}, :class => 'action edit', class: "btn btn-warning") %>
+        <%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure you want to delete this client?' }, class: "btn btn-danger"%>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+</div>
+

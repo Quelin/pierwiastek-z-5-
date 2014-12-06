@@ -1,0 +1,43 @@
+<div class="col-lg-6">
+<%= link_to("Add New Post", {:action => 'new'}, :class => 'action new', class: "btn btn-default") %>
+</div>
+<div class="col-lg-4 col-lg-offset-8">
+  <%= form_tag posts_path, method: "get" do %>
+
+  <%= label_tag(:project_id, "Search posts by project") %><br />
+  <%= select(:project_id, "project_id", @projects.map {|p| [p.name, p.id]}, { :include_blank => true}, { :class => "form-control"}) %><br />
+
+      <%= submit_tag "Search posts by project", class: "btn btn-large btn-primary" %>
+    <% end %>
+</div>
+
+<div class ="col-lg-11">
+<% @posts.each do |post| %>
+
+    <h2 id="type-blockquotes">
+      <%= link_to(post.title, {:action => 'show', :id => post.id}, :class => 'action show') %>
+    </h2>
+    
+    <div class="bs-component">
+      <blockquote>
+  <p><%= post.body.html_safe %></p>
+
+  <br /><br />
+  
+  <small>Added by <%= post.user.name if post.user %>&nbsp;<%= post.user.lastname if post.user %></small>
+  
+  <br />
+  
+  <small>Created at:&nbsp;<%= post.created_at %></small>
+
+  <br />
+  
+  <p>Comments:&nbsp;<%= post.count %></p>
+      </blockquote>
+    </div>
+
+  <% if post != @posts.last %>
+  <hr />
+  <% end %>
+<% end %>
+</div>

@@ -1,0 +1,61 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link', class: "btn btn-default") %>
+<br />
+
+  <div class="col-lg-12">
+  	<h2 id="type-blockquotes">
+      <%= @post.title %>
+    </h2>
+  </div>
+
+  <div class="col-lg-8">
+  	<div class="bs-component">
+  		<blockquote>
+  <p><%= @post.body.html_safe %></p>
+  <br />
+  <small>Added by <%= @post.user.name if @post.user %>&nbsp;<%= @post.user.lastname if @post.user %></small>
+  <br />
+  <small>Created at:&nbsp;<%= @post.created_at %></small>
+  		</blockquote>
+
+
+        <h2>Comments:</h2>
+      
+<% @post.comments.each do |comment| %>
+<div class="well">
+    
+    <%= comment.body %>
+    
+    <br /><br />
+    
+    <small>Added by <%= comment.user.name if comment.user %>&nbsp;<%= comment.user.lastname if comment.user %></small>
+    
+    <br />
+    
+    <small>Created at:&nbsp;<%= comment.created_at %></small>
+    
+    </div>
+
+<% end %>
+
+<div class="col-lg-7">
+      <h2>Add a comment:</h2>
+      <div class = "form-group">
+
+<%= form_for([@post, @post.comments.build]) do |f| %>
+
+    <label class="control-label" for="body">Text:</label>
+      <%= f.text_area(:body, class: "form-control") %>
+      
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      
+      <br />
+
+    <div class = "form-buttons" >
+      <%= submit_tag("Create Project", class: "btn btn-success") %>
+    </div>
+<% end %>
+  	</div>
+      </div>
+
+
+

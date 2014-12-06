@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  done: false
+  start_time: 2014-11-19 19:48:56
+  end_time: 2014-11-19 19:48:56
+  project_id: 1
+  user_id: 1
+  milestone_id: 1
+
+two:
+  name: MyString
+  description: MyText
+  done: false
+  start_time: 2014-11-19 19:48:56
+  end_time: 2014-11-19 19:48:56
+  project_id: 1
+  user_id: 1
+  milestone_id: 1

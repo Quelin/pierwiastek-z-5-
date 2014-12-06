@@ -1,0 +1,45 @@
+<div class = "form-group">
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <label class="control-label" for="name">Name</label>
+      <%= f.text_field(:name, class: "form-control") %>
+    <br />
+    
+    <label class="control-label" for="description">Description</label>
+      <%= f.text_area(:description, class: "form-control") %>
+    <br />
+    
+    <%= f.label(:client_id, "Client") %><br />
+    <%= f.select(:client_id, @clients.map {|c| [c.name, c.id]}, { }, { :class => "form-control"}) %>
+    <br />
+    
+
+    <label class="control-label" for="username">Add users to project:</label><br />
+    <% User.order(:lastname).each do |user| %>
+    
+    <div>
+    <%= user.name %>&nbsp;<%= user.lastname %>&nbsp;&nbsp;&nbsp;
+    <%= check_box_tag "project[user_ids][]", user.id, @project.users.include?(user) %>
+    </div>
+
+
+<% end %>
+  <br /><br />
+  <div class = "form-buttons">
+    <%= submit_tag("Create Project", class: "btn btn-success") %>
+  </div>
+  </div>
+<% end %>
+
+

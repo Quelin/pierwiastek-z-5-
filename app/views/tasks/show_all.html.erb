@@ -1,0 +1,57 @@
+<div class = "panel panel-primary">
+  <div class="panel-heading">
+     <h3 class="panel-title">Tasks</h3>
+    </div>
+    <div class="panel-body">
+  <br />
+
+
+  <br />
+  <div id="calendar"></div>
+  <br />
+  <br />
+
+</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+
+            $('#calendar').fullCalendar(
+
+
+
+            {
+
+dayClick: function(date, allDay, jsEvent, view) {
+
+
+    },
+
+
+
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                },
+
+                editable: true,
+                height: 450,
+                    events: {
+                          url: '/tasks.json',
+                          type: 'GET',
+                          error: function() {
+                              alert('there was an error while fetching events!');
+                          },
+                          backgroundColor: '#272b30',
+                          textColor: '#eee8d5'
+                    }
+            });
+
+        });
+
+</script>

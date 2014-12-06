@@ -1,0 +1,35 @@
+<% if @post.errors.any? %>
+  <ul>
+    <%= @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @post do |f| %>
+<div class ="col-lg-4">
+    <label class="control-label" for="title">Name:</label>
+      <%= f.text_field(:title, class: "form-control") %>
+</div><br /><br /><br /><br />
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="control-label" for="body">Description:</label>
+  
+  <div>
+    <%= f.cktext_area :body, rows: 10 %>
+  </div>
+
+  <br />
+<div class ="col-lg-4">
+  <%= f.label(:project_id, "Project") %><br />
+  <%= f.select(:project_id, @projects.map {|p| [p.name, p.id]}, {}, { :class => "form-control"}) %><br />
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <div class = "form-buttons">
+    <%= submit_tag("Create Post", class: "btn btn-success") %>
+  </div>
+  <br /><br /><br />
+  </div> 
+<% end %>
+
+
+

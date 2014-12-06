@@ -1,0 +1,38 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link', class: "btn btn-default") %>
+<br /><br /><br />
+		<div class="panel panel-info">
+        <div class="panel-heading">User details</div>
+        <div class="panel-body">
+
+	<table class = "table table-striped table-hover">
+		<tr>
+			<th>ID:</th>
+			<td><%= @user.id %></td>
+		</tr>
+		<tr class="active">
+			<th>Name:</th>
+			<td><%= @user.name %></td>
+		</tr>
+		<tr>
+			<th>Last Name:</th>
+			<td><%= @user.lastname %></td>
+		</tr>
+		<tr  class="active">
+			<th>E-mail:</th>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr>
+			<th>Department:</th>
+			<td><%= @user.department %></td>
+		</tr>
+		<tr class="active">
+			<th>Created:</th>
+			<td><%= @user.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated:</th>
+			<td><%= @user.updated_at %></td>
+		</tr>
+	</table>
+                </div>
+              </div>
