@@ -12,12 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require twitter/bootstrap
 //= require turbolinks
+//= require jquery.turbolinks
 //= require moment
 //= require fullcalendar
 //= require bootstrap-datetimepicker
 //= require masonry/jquery.masonry
 //= require masonry/jquery.infinitescroll.min
 //= require ckeditor/init
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require_tree .

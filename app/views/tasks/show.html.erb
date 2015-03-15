@@ -3,7 +3,25 @@
     <div class="panel panel-info">
         <div class="panel-heading">Task details</div>
         <div class="panel-body">
+       <h3>Time tracking for task <b><%=@task.name%></b></h3>
+<br />
+       <div class="col-lg-6">
+            <% if @task.work? %>
+                      <%= link_to("Stop", stop_project_task_path(@task.project, @task), class: "btn btn-info") %>
 
+            <% else %>
+          <%= link_to("Start", start_project_task_path(@task.project, @task), class: "btn btn-info") %>
+
+            <% end %>
+            </div>
+            <div class="col-lg-6">
+           <p>Total time spent on this task: <% total = @task.logged %>
+           <%= format("%02d:%02d:%02d", total/(60 * 60), (total/60) % 60, total % 60) %>
+            </div>
+
+<br />
+<br />
+<br />
   <table class = "table table-striped table-hover">
     <tr>
       <th>ID:</th>

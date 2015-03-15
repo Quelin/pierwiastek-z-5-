@@ -9,31 +9,38 @@
   <br />
   <br />
   <br />
-  <table class = "table table-striped table-hover" summary = "Clients list">
-    <tr>
-      <th>ID&nbsp;&nbsp;&nbsp;</th>
-      <th>&nbsp;&nbsp;&nbsp;Name</th>
-      <th>&nbsp;&nbsp;&nbsp;Description</th>
-      <th>&nbsp;&nbsp;&nbsp;Address</th>
-      <th>&nbsp;&nbsp;&nbsp;E-mail</th>
-      <th>&nbsp;&nbsp;&nbsp;Phone</th>
-      <th>&nbsp;&nbsp;&nbsp;Actions</th>
+  <table class = "table table-striped table-hover datatable" summary = "Clients list">
+    <thead>
+    <tr>    
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>E-mail</th>
+      <th>Phone</th>
+      <th>Actions</th>
     </tr>
-    <% @clients.each do |client| %>
+    </thead>
+
+    
+    <tbody>
+      <% @clients.each do |client| %>
     <tr>
       <td><%= client.id %></td>
-      <td>&nbsp;&nbsp;&nbsp;<%= truncate(client.name, length: 20, separator: ' ') %></td>
-      <td>&nbsp;&nbsp;&nbsp;<%= truncate(client.description, length: 30, separator: ' ') %></td>
-      <td>&nbsp;&nbsp;&nbsp;<%= truncate(client.address, length: 30, separator: ' ') %></td>
-      <td>&nbsp;&nbsp;&nbsp;<%= client.email %></td>
-      <td>&nbsp;&nbsp;&nbsp;<%= client.phone %></td>
-      <td class = "actions">
+      <td><%= truncate(client.name, length: 20, separator: ' ') %></td>
+      <td><%= truncate(client.description, length: 30, separator: ' ') %></td>
+      <td><%= truncate(client.address, length: 30, separator: ' ') %></td>
+      <td><%= client.email %></td>
+      <td><%= client.phone %></td>
+      <td>
         <%= link_to("Details", {:action => 'show', :id => client.id}, :class => 'action show', class: "btn btn-info") %>
         <%= link_to("Edit", {:action => 'edit', :id => client.id}, :class => 'action edit', class: "btn btn-warning") %>
         <%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure you want to delete this client?' }, class: "btn btn-danger"%>
       </td>
     </tr>
     <% end %>
+  </tbody>
+    
   </table>
 </div>
 </div>

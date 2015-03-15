@@ -12,9 +12,13 @@ Rails.application.routes.draw do
    
   
   resources :projects do
-    resources :tasks
+    resources :tasks do
+     member do
+      get :start, :stop
+      end
+    end
   end
-
+  
 
   resources :posts do
     resources :comments

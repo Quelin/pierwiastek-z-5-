@@ -67,9 +67,17 @@ GEM
     jbuilder (2.2.4)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jquery-datatables-rails (3.1.1)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     json (1.8.1)
     less (2.5.1)
       commonjs (~> 0.2.7)
@@ -174,7 +182,9 @@ DEPENDENCIES
   devise
   fullcalendar-rails
   jbuilder (~> 2.0)
+  jquery-datatables-rails (~> 3.1.1)
   jquery-rails
+  jquery-turbolinks
   less-rails
   masonry-rails
   momentjs-rails (>= 2.8.1)

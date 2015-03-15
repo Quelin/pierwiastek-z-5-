@@ -94,6 +94,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def start
+    @task = Task.find(params[:id])
+    @activity = Activity.create(task: @task, start_time: Time.now)
+    redirect_to [@task.project, @task]
+  end
+
+  def stop
+    @task = Task.find(params[:id])
+    @activity = @task.activities.last.update(end_time: Time.now)
+    redirect_to [@task.project, @task]
+  end
+
   private
     def set_task
       @task = Task.find(params[:id])
