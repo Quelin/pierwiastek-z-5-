@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-$('.datatable').DataTable({
+$('#tasks').DataTable({
   // ajax: ...,
   // autoWidth: false,
   // pagingType: 'full_numbers',

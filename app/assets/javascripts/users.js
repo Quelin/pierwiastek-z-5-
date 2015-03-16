@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
-$('.datatable').DataTable({
+$('#users').DataTable({
+
   // ajax: ...,
   // autoWidth: false,
   // pagingType: 'full_numbers',
